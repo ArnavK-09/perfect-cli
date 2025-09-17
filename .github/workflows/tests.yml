@@ -1,10 +1,10 @@
-name: Tests
+name: Run tests
 
 on:
   push:
-    branches: [main]
+    branches:
+      - '**'
   pull_request:
-    branches: [main]
 
 jobs:
   type-check:
@@ -19,7 +19,7 @@ jobs:
           bun-version: latest
 
       - name: Install dependencies
-        run: bun i
+        run: bun install
 
       - name: Run tests
         run: bun run test
